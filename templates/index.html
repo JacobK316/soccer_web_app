@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Scores</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🏆 Player Scores 🏆</h1>
+    <ul>
+        {% for player, score in player_scores.items() %}
+        <li>{{ player }}: {{ score }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/update">
+        <label for="player">Player:</label>
+        <input type="text" id="player" name="player">
+        <label for="score">Score:</label>
+        <input type="number" id="score" name="score">
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>
